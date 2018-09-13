@@ -3,12 +3,6 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-runtime",
-    "transform-class-properties",
-    [
-      "module-resolver",
-      {
-        "root": ["./src"]
-      }
-    ]
+    "transform-class-properties"
   ]
 }

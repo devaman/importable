@@ -1,19 +1,12 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:react/recommended", "prettier", "prettier/react"],
-  "plugins": ["react", "jest", "prettier"],
+  "extends": ["airbnb/base", "prettier"],
+  "plugins": ["jest", "prettier"],
   "env": {
     "jest/globals": true
   },
   "rules": {
     "prettier/prettier": "warn"
-  },
-  "settings": {
-    "import/resolver": {
-      "babel-module": {
-        "root": ["./src"]
-      }
-    }
   }
 }
