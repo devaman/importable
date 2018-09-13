@@ -1,0 +1,10 @@
+{
+  "name": "importable",
+  "version": "0.0.1",
+  "description": "Safely lazy load and initialize packages across your app",
+  "main": "index.js",
+  "repository": "https://github.com/michaelwm/importable",
+  "author": "Michael Midura <michael@midura.io>",
+  "license": "MIT",
+  "private": false
+}

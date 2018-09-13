@@ -1,0 +1,14 @@
+### JetBrains IDEs ###
+.idea/
+
+### Build Standards ###
+build/
+
+### Node ###
+node_modules/
+
+### Yarn ###
+yarn-error.log
+
+### macOS ###
+.DS_Store
