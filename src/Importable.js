@@ -13,17 +13,19 @@ class Importable {
             this.initialized = true;
           });
 
-          return this.initialize(modules).then(() => {
+          return this.initialize(modules).then(initializationResults => {
+            this.initializationResults = initializationResults;
+
             this.initialization.then();
 
-            return this.map(modules);
+            return this.map(modules, initializationResults);
           });
         }
 
-        return this.initialization.then(() => this.map(modules));
+        return this.initialization.then(() => this.map(modules, this.initializationResults));
       }
 
-      return this.map(modules);
+      return this.map(modules, this.initializationResults);
     });
   }
 }
