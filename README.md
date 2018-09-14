@@ -2,7 +2,7 @@
 
 Safely lazy load and initialize packages across your app
 
-## Why
+## Why?
 
 Lazy loading is great, but as soon as you need to do anything more than import a single package, it can get messy. With importable, you can import the packages you need, initialize them, and use them like normal; all while making your packages are only initialized once.
 
