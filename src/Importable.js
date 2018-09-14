@@ -1,10 +1,4 @@
 class Importable {
-  modules;
-
-  initialized;
-
-  initialization;
-
   constructor(modules, initialize, map) {
     this.modules = Array.isArray(modules) ? modules : [modules];
     this.initialize = initialize;

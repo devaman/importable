@@ -5,7 +5,6 @@
   "author": "Michael Midura <michael@midura.io>",
   "license": "MIT",
   "scripts": {
-    "commit": "git-cz",
     "build": "webpack --mode production",
     "analyze": "yarn build --analyze"
   },
@@ -33,8 +32,6 @@
     "babel-jest": "~23.6.0",
     "babel-loader": "~8.0.2",
     "clean-webpack-plugin": "~0.1.19",
-    "commitizen": "~2.10.1",
-    "cz-conventional-changelog": "~2.1.0",
     "eslint": "~5.5.0",
     "eslint-config-airbnb": "~17.1.0",
     "eslint-config-prettier": "~3.0.1",
