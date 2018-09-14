@@ -21,7 +21,10 @@
     "url": "https://github.com/michaelwm/importable.git"
   },
   "keywords": [
-    "importable"
+    "import",
+    "simple",
+    "class",
+    "initialize"
   ],
   "devDependencies": {
     "@babel/cli": "~7.0.0",
