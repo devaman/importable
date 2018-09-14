@@ -11,25 +11,27 @@ class Importable {
     this.map = map;
   }
 
-  import = async () => {
-    const modules = await Promise.all(this.modules);
+  import() {
+    return Promise.all(this.modules).then(modules => {
+      if (!this.initialized) {
+        if (!this.initialization) {
+          this.initialization = new Promise(() => {
+            this.initialized = true;
+          });
 
-    if (!this.initialized) {
-      if (!this.initialization) {
-        this.initialization = new Promise(() => {
-          this.initialized = true;
-        });
+          return this.initialize(modules).then(() => {
+            this.initialization.then();
 
-        await this.initialize(modules);
+            return this.map(modules);
+          });
+        }
 
-        this.initialization.then();
-      } else {
-        await this.initialization;
+        return this.initialization.then(() => this.map(modules));
       }
-    }
 
-    return this.map(modules);
-  };
+      return this.map(modules);
+    });
+  }
 }
 
 export default Importable;
