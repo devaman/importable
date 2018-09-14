@@ -48,8 +48,8 @@ describe('Prettier = new Importable()', () => {
   it('can be used like normal', async () => {
     const prettier = await Prettier.import();
 
-    expect(prettier.format('const eorl="Forth Eorlingas"', prettier.options)).toBe(
-      "const eorl = 'Forth Eorlingas';\n",
+    expect(prettier.format('const cry="Forth Eorlingas"', prettier.options)).toBe(
+      "const cry = 'Forth Eorlingas';\n",
     );
   });
 });
