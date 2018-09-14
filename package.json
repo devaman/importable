@@ -1,6 +1,6 @@
 {
   "name": "importable",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Safely lazy load and initialize packages across your app",
   "author": "Michael Midura <michael@midura.io>",
   "license": "MIT",
