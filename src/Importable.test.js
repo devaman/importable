@@ -10,10 +10,7 @@ describe('Prettier = new Importable()', () => {
       const options = await prettier.resolveConfig(path.resolve(__dirname, '../.prettierrc.json'));
 
       return {
-        options: {
-          parser: 'babylon',
-          ...options,
-        },
+        options,
         initializedAt: new Date(),
       };
     },
@@ -21,35 +18,35 @@ describe('Prettier = new Importable()', () => {
       const [prettier] = modules;
 
       return {
-        format: prettier.format,
+        format: str =>
+          prettier.format(str, {
+            parser: 'babylon',
+            ...initializationResults.options,
+          }),
         ...initializationResults,
       };
     },
   );
 
-  it('imports prettier and initializes it', async () => {
+  it('imports prettier and initializes it once', async () => {
+    const prettiers = await Promise.all([Prettier.import(), Prettier.import()]);
+
+    expect(prettiers[0].initializedAt).toBe(prettiers[1].initializedAt);
+  });
+
+  it('initializes correctly', async () => {
     const prettier = await Prettier.import();
 
     expect(prettier.options).toEqual({
-      parser: 'babylon',
       printWidth: 100,
       singleQuote: true,
       trailingComma: 'all',
     });
   });
 
-  it('only initializes once', async () => {
-    const prettier1 = await Prettier.import();
-    const prettier2 = await Prettier.import();
-
-    expect(prettier1.initializedAt).toBe(prettier2.initializedAt);
-  });
-
   it('can be used like normal', async () => {
     const prettier = await Prettier.import();
 
-    expect(prettier.format('const cry="Forth Eorlingas"', prettier.options)).toBe(
-      "const cry = 'Forth Eorlingas';\n",
-    );
+    expect(prettier.format('const cry="Forth Eorlingas"')).toBe("const cry = 'Forth Eorlingas';\n");
   });
 });
