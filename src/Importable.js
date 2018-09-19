@@ -10,16 +10,16 @@ class Importable {
   awaitInitialization(modules) {
     return new Promise(resolve => {
       if (this.initialized) {
-        resolve(this.initializationResults);
+        return resolve(this.initializationResults);
       }
 
       if (this.begunInitialization) {
-        this.awaitingInitialization.push(resolve);
+        return this.awaitingInitialization.push(resolve);
       }
 
       this.begunInitialization = true;
 
-      this.initialize(modules).then(initializationResults => {
+      return this.initialize(modules).then(initializationResults => {
         this.initializationResults = initializationResults;
         this.initialized = true;
 
