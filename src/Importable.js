@@ -24,7 +24,7 @@ class Importable {
         this.initialized = true;
 
         resolve(initializationResults);
-        this.awaitingInitialization.forEach(resolve => resolve(initializationResults));
+        this.awaitingInitialization.forEach(res => res(initializationResults));
       });
     });
   }
