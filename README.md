@@ -17,11 +17,11 @@ yarn add importable
 Create an Importable package
 
 ```js
-import Importable from "importable";
+import Importable from 'importable';
 
 const LazyPackage = new Importable(
   // import the packages you need
-  [import("lazy-package"), import("lazy-config")],
+  [import('lazy-package'), import('lazy-config')],
 
   // initialize them
   async modules => {
@@ -35,7 +35,7 @@ const LazyPackage = new Importable(
     const [lazyPackage] = modules;
 
     return lazyPackage;
-  }
+  },
 );
 
 export default LazyPackage;
@@ -44,9 +44,9 @@ export default LazyPackage;
 Import your package with `await` and use it like normal
 
 ```js
-import LazyPackage from "../importables/LazyPackage";
+import LazyPackage from '../importables/LazyPackage';
 
-const lazyFunction = async () => {
+const asyncFunction = async () => {
   // get your package
   const lazyPackage = await LazyPackage.import();
 
@@ -55,7 +55,9 @@ const lazyFunction = async () => {
 };
 
 // and do it as often as you like
-lazyFunction();
-lazyFunction();
-lazyFunction();
+asyncFunction();
+asyncFunction();
+asyncFunction();
 ```
+
+See the [test cases](https://github.com/michaelwm/importable/blob/master/src/Importable.test.js) for more in depth usage.
