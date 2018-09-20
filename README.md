@@ -4,7 +4,7 @@ Safely lazy load and initialize packages across your app
 
 ## Why?
 
-Lazy loading is great, but as soon as you need to do anything more than import a single package, it can get messy. With importable, you can import the packages you need, initialize them, and use them like normal; all while making sure your packages are only initialized once.
+Lazy loading is great, but as soon as you need to do anything more than import a single package, it can get messy. With Importable, you can import the packages you need, initialize them, and use them like normal; all while making sure your packages are only initialized once.
 
 ## Usage
 
@@ -59,5 +59,7 @@ asyncFunction();
 asyncFunction();
 asyncFunction();
 ```
+
+Importable ensures your package i
 
 See the [test cases](https://github.com/michaelwm/importable/blob/master/src/Importable.test.js) for more in depth usage.
