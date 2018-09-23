@@ -4,7 +4,7 @@ class Importable {
     this.initialize = initialize;
     this.map = map;
 
-    this.awaitingInitialization = [];
+    this.waiting = [];
   }
 
   awaitInitialization(modules) {
@@ -14,7 +14,7 @@ class Importable {
       }
 
       if (this.begunInitialization) {
-        return this.awaitingInitialization.push(resolve);
+        return this.waiting.push(resolve);
       }
 
       this.begunInitialization = true;
@@ -25,9 +25,9 @@ class Importable {
 
         resolve(initializationResults);
 
-        if (this.awaitingInitialization.length) {
-          this.awaitingInitialization.forEach(res => res(initializationResults));
-          this.awaitingInitialization = [];
+        if (this.waiting.length) {
+          this.waiting.forEach(res => res(initializationResults));
+          this.waiting = [];
         }
       });
     });
