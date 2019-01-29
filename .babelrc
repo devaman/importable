@@ -3,7 +3,7 @@
   "env": {
     "test": {
       "presets": ["@babel/preset-env"],
-      "plugins": ["dynamic-import-node"]
+      "plugins": ["@babel/transform-runtime", "dynamic-import-node"]
     }
   }
 }
