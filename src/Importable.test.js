@@ -20,7 +20,7 @@ describe('Prettier = new Importable()', () => {
       return {
         format: str =>
           prettier.format(str, {
-            parser: 'babylon',
+            parser: 'babel',
             ...initializationResults.options,
           }),
         ...initializationResults,
